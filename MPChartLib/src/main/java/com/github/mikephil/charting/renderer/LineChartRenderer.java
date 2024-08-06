@@ -391,6 +391,8 @@ public class LineChartRenderer extends LineRadarRenderer {
                     e2 = dataSet.getEntryForIndex(x);
 
                     if (e1 == null || e2 == null) continue;
+                    //新增断续折线
+                    if (Float.isNaN(e1.getY())||Float.isNaN(e2.getY())) continue;
 
                     mLineBuffer[j++] = e1.getX();
                     mLineBuffer[j++] = e1.getY() * phaseY;
